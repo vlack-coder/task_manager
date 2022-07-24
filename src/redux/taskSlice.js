@@ -16,9 +16,10 @@ export const getTasks = createAsyncThunk("tasks/getTasks", async () => {
     const response = await axiosInstance.get(
       `task/${lead}?company_id=${company_id}`
     );
-    return response.data.results;
+    return response?.data?.results;
   } catch (error) {
-    return error;
+    console.log("error", error.message);
+    throw error.message;
   }
 });
 
@@ -30,7 +31,7 @@ export const addTask = createAsyncThunk("tasks/addTask", async (task) => {
     );
     return response.data.results;
   } catch (error) {
-    return error;
+    throw error.message;
   }
 });
 export const updateTask = createAsyncThunk("tasks/updateTask", async (task) => {
@@ -41,7 +42,7 @@ export const updateTask = createAsyncThunk("tasks/updateTask", async (task) => {
     );
     return response.data.results;
   } catch (error) {
-    return error;
+    throw error.message;
   }
 });
 export const removeTask = createAsyncThunk(
@@ -54,7 +55,8 @@ export const removeTask = createAsyncThunk(
 
       return task_id;
     } catch (error) {
-      return error;
+      throw error.message;
+
     }
   }
 );
@@ -64,7 +66,7 @@ export const taskSlice = createSlice({
   initialState,
   reducers: {
     setTask(state, action) {
-      state.task = action.payload;
+      state.task = action?.payload;
     },
   },
   extraReducers(builder) {
@@ -73,7 +75,7 @@ export const taskSlice = createSlice({
         state.status = "loading";
       })
       .addCase(getTasks.fulfilled, (state, action) => {
-        state.tasks = action.payload;
+        state.tasks = action?.payload;
         state.status = "suceeded";
       })
       .addCase(getTasks.rejected, (state, action) => {
@@ -82,7 +84,8 @@ export const taskSlice = createSlice({
       })
       .addCase(addTask.fulfilled, (state, action) => {
         state.status = "suceeded";
-        state.tasks = [action.payload, ...state.tasks];
+        state.tasks = [action?.payload, ...state.tasks];
+        // state.tasks.push(action.payload);
       })
       .addCase(addTask.rejected, (state, action) => {
         state.status = "failed";
@@ -91,10 +94,10 @@ export const taskSlice = createSlice({
       .addCase(updateTask.fulfilled, (state, action) => {
         state.status = "suceeded";
         const taskIndex = state.tasks.findIndex(
-          (task) => task.id === action.payload?.id
+          (task) => task.id === action?.payload?.id
         );
         console.log("taskIndex", taskIndex);
-        state.tasks[taskIndex] = action.payload;
+        state.tasks[taskIndex] = action?.payload;
       })
       .addCase(updateTask.rejected, (state, action) => {
         state.status = "failed";
@@ -102,7 +105,7 @@ export const taskSlice = createSlice({
       })
       .addCase(removeTask.fulfilled, (state, action) => {
         state.status = "suceeded";
-        const task_id = action.payload;
+        const task_id = action?.payload;
 
         const tasks = state.tasks.filter((task) => task.id !== task_id);
         state.tasks = tasks;

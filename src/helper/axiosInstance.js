@@ -33,6 +33,11 @@ axiosInstance.interceptors.response.use(
         reject(error);
       });
     }
+    if (error.message === "Network Error") {
+      return new Promise((resolve, reject) => {
+        reject(error);
+      });
+    }
     return new Promise((resolve, reject) => {
       const response = error?.response;
       console.log(`axiusresponse`, response);

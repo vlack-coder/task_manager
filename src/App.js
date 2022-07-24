@@ -17,6 +17,14 @@ function App() {
     dispatch(getTasks());
     dispatch(getUsers());
   }, [dispatch]);
+  // useEffect(() => {
+  //   try {
+  //     dispatch(getTasks()).unwrap();
+  //     dispatch(getUsers()).unwrap();
+  //   } catch (error) {
+  //     console.log('apperror', error)
+  //   }
+  // }, [dispatch]);
 
   return (
     <>

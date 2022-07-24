@@ -14,19 +14,21 @@ a {
   text-decoration: none;
 }
 
-.App{
+.App {
   display: flex;
   /* justify-content: center; */
-  padding: 100px;
+  padding: 100px 5px 100px 20px;
   /* align-items: center; */
   min-height: 100vh;
 }
 nav {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   height: 60px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100vw;
+  z-index: 10;
+  background-color: white;
 }

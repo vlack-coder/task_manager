@@ -7,6 +7,7 @@ import Task from "./Task";
 function Tasks() {
   const tasks = useSelector((state) => state.task.tasks);
   const status = useSelector((state) => state.task.staus);
+  console.log("taskddscheck", tasks);
 
   if (tasks.length === 0 && status === "loading")
     return (
@@ -22,7 +23,7 @@ function Tasks() {
         <Loader />
       </div>
     );
-  // if (tasks.length === 0) <p>No Task Assigned yet</p>;
+  if (tasks.length === 0) <p>No Task Assigned yet</p>;
 
   return (
     <>
@@ -43,9 +44,9 @@ function Tasks() {
             <Loader />
           </div>
         )} */}
-          {tasks.map((task) => (
-            <Task task={task} key={task.id} />
-          ))}
+          {tasks &&
+            tasks.length !== 0 &&
+            tasks.map((task) => <Task task={task} key={task?.id} />)}
         </motion.div>
       )}
     </>

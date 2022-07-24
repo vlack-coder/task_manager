@@ -17,7 +17,7 @@ export const getUsers = createAsyncThunk("app/getUsers", async () => {
     );
     return response.data.results.data;
   } catch (error) {
-    return error;
+    throw error;
   }
 });
 
@@ -26,13 +26,13 @@ export const appSlice = createSlice({
   initialState,
   reducers: {
     toggleFormState(state, action) {
-      if (action.payload.edit) {
-        state.singleTask = action.payload.task;
+      if (action?.payload.edit) {
+        state.singleTask = action?.payload.task;
       }
-      if (action.payload.resetTask) {
-        state.singleTask = null
+      if (action?.payload.resetTask) {
+        state.singleTask = null;
       }
-      state.formIsOpen = action.payload.open;
+      state.formIsOpen = action?.payload.open;
     },
   },
   extraReducers(builder) {
@@ -42,8 +42,8 @@ export const appSlice = createSlice({
       })
       .addCase(getUsers.fulfilled, (state, action) => {
         state.status = "suceeded";
-        // console.log("action.payload", action.payload);
-        state.users = action.payload.map((user) => ({
+        // console.log("action?.payload", action?.payload);
+        state.users = action?.payload.map((user) => ({
           label: user.name,
           value: user.id,
         }));
