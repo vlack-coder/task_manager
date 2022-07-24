@@ -61,3 +61,10 @@
 .task_loader p{
   font-size: 15px;
 }
+
+@media only screen and (max-width: 600px) {
+  .tassk {
+    /* border: 1px solid red; */
+    width: 95vw;
+  }
+}
