@@ -1,0 +1,101 @@
+.task {
+  width: 370px;
+  border: 1px solid var(--color-divider);
+  height: fit-content;
+  border-radius: 5px;
+  /* overflow: hidden; */
+}
+.task_form {
+  width: 100%;
+}
+.task_header {
+  display: flex;
+  /* border-bottom: 1px solid var(--color-divider); */
+  justify-content: space-between;
+}
+.task_header_content {
+  padding: 9px 10px;
+  display: flex;
+  font-size: 13px;
+}
+.task_header button {
+  padding: 0px 12px;
+  color: rgb(142, 139, 139);
+  font-size: 17px;
+  /* border: none; */
+}
+.form {
+  padding: 8px 16px;
+  background-color: var(--color-primary);
+  width: "100%";
+  border-radius: 0px 0px 5px 5px;
+}
+.follow_up {
+  border: 1px solid var(--color-divider);
+  display: flex;
+  border-radius: 3px;
+}
+.follow_up input {
+  border: none;
+  background-color: transparent;
+  /* background-color: red; */
+  width: 100%;
+  padding: 5px 8px;
+}
+.date_time {
+  display: flex;
+  gap: 11px;
+}
+.save_cancel_cont {
+  display: flex;
+  margin: 19px 0px;
+  justify-content: space-between;
+}
+.cancel_save {
+  display: flex;
+  gap: 5px;
+}
+.button {
+  background-color: transparent;
+  padding: 7px 18px;
+  border-radius: 3px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+.save {
+  background-color: var(--color-button);
+  color: #f0f0f1;
+}
+
+/* CSS */
+.button-6 {
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  /* border: 1px solid rgba(0, 0, 0, 0.1); */
+  border-left: 1px solid var(--color-divider);
+  /* box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0; */
+  cursor: pointer;
+  font-size: 16px;
+  /* font-weight: 600; */
+}
+
+.button-6:hover,
+.button-6:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.button-6:hover {
+  /* transform: translateY(-1px); */
+}
+
+.button-6:active {
+  background-color: #f0f0f1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}
