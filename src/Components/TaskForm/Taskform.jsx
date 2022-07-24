@@ -16,7 +16,6 @@ import { toggleFormState } from "../../redux/appSlice";
 import { addTask, removeTask, updateTask } from "../../redux/taskSlice";
 import Input from "../Input/Input";
 import "./TaskForm.css";
-import { AnimatePresence, motion } from "framer-motion";
 
 const validationSchema = Yup.object().shape({
   assignUser: Yup.string().required("assignUser a required"),

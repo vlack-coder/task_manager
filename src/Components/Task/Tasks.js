@@ -1,9 +1,8 @@
+import { motion } from "framer-motion";
 import React from "react";
 import { useSelector } from "react-redux";
 import Loader from "../Loader";
 import Task from "./Task";
-import { motion } from "framer-motion";
-import { type } from "@testing-library/user-event/dist/type";
 
 function Tasks() {
   const tasks = useSelector((state) => state.task.tasks);
